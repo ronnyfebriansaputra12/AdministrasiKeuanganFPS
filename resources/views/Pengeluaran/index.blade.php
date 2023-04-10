@@ -5,6 +5,7 @@
 @section('breadcrumb', 'Pengeluaran')
 @section('container-fluid')
 
+
 <div class="container">
     <a href="/pengeluaran/create" type="button" class="btn btn-primary"><i class="fa-solid fas fa-plus"></i> Insert Data</a>
      
@@ -54,13 +55,150 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
 <script>
 
     $(document).ready(function() {
-        $('.pengeluaran').DataTable();
-    } );
+        $('.pengeluaran').DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+
+//         $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//     $('#example2').DataTable({
+//       "paging": true,
+//       "lengthChange": false,
+//       "searching": false,
+//       "ordering": true,
+//       "info": true,
+//       "autoWidth": false,
+//       "responsive": true,
+//     });
+//   });
 
 </script>
+
+
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+            {{-- <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="dt-buttons btn-gruop flex-wrap">
+                                <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button>
+                                <button class="btn btn-secondary buttons-csv buttons-html5"" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button>
+                                <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+                                <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button>
+                                <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Gecko</td>
+                    <td>Seamonkey 1.1</td>
+                    <td>Win 98+ / OSX.2+</td>
+                    <td>1.8</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>Gecko</td>
+                    <td>Epiphany 2.20</td>
+                    <td>Gnome</td>
+                    <td>1.8</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>Webkit</td>
+                    <td>Safari 1.2</td>
+                    <td>OSX.3</td>
+                    <td>125.5</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>Webkit</td>
+                    <td>Safari 1.3</td>
+                    <td>OSX.3</td>
+                    <td>312.8</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td>Webkit</td>
+                    <td>Safari 2.0</td>
+                    <td>OSX.4+</td>
+                    <td>419.3</td>
+                    <td>A</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script> --}}
+
+
+{{-- ------------------------------------------------------------------------------------------- --}}
+
+
+
+
+
 
 @endsection

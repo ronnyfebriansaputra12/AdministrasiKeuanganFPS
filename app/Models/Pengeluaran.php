@@ -12,7 +12,7 @@ class Pengeluaran extends Model
 
     public function pemasukan()
     {
-        return $this->belongsTo(Pemasukan::class, 'pemasukan_id', 'id');
+        return $this->belongsTo(Pemasukan::class, 'id_pemasukan', 'id');
     }
 
 
