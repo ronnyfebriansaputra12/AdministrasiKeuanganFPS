@@ -94,40 +94,39 @@
                 alert('Silahkan pilih data pemasukan terlebih dahulu')
             }else{
                 var wasit = uangMasuk.value - 100000;
-                $('#input').append('<d class="mb-3 col-md-6"><label for="Gaji Wasit" class="form-label">Gaji wasit</label><input type="text" name="wasit" class="form-control" id="gaji-wasit" value="'+100000+'"></d iv>');
+                $('#input').append('<d class="mb-3 col-md-6"><label for="Gaji Wasit" class="form-label">Gaji wasit</label><input type="number" name="wasit" class="form-control" id="gaji-wasit" value="'+100000+'"></d iv>');
                 
                 var laundry = wasit - 50000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Laundry" class="form-label">Laundry</label><input type="text" name="laundry" class="form-control" id="laundry" value="'+50000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Laundry" class="form-label">Laundry</label><input type="number" name="laundry" class="form-control" id="laundry" value="'+50000+'"></div>');
 
                 var fotographer = laundry - 100000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Fotographer" class="form-label">Fotographer</label><input type="text" name="fotografer" class="form-control" id="fotographer" value="'+100000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Fotographer" class="form-label">Fotographer</label><input type="number" name="fotografer" class="form-control" id="fotographer" value="'+100000+'"></div>');
 
 
                 var korlap = fotographer - 50000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Korlap" class="form-label">Korlap</label><input type="text" name="korlap" class="form-control" id="korlap" value="'+50000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Korlap" class="form-label">Korlap</label><input type="number" name="korlap" class="form-control" id="korlap" value="'+50000+'"></div>');
 
 
                 var admin = korlap - 50000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Admin" class="form-label">Admin</label><input type="text" name="admin" class="form-control" id="admin" value="'+50000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Admin" class="form-label">Admin</label><input type="number" name="admin" class="form-control" id="admin" value="'+50000+'"></div>');
 
                 var sewa_lapangan = admin - 100000;
-                $('#input').append('<div class="mb-3 col-md-4"><label for="Sewa Lapangan" class="form-label">Sewa Lapangan</label><input type="text" name="sewa_lapangan" class="form-control" id="sewa-lapangan" value="'+100000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-4"><label for="Sewa Lapangan" class="form-label">Sewa Lapangan</label><input type="number" name="sewa_lapangan" class="form-control" id="sewa-lapangan" value="'+100000+'"></div>');
 
 
                 var air_mineral = sewa_lapangan - 150000;
-                $('#input').append('<div class="mb-3 col-md-2"><label for="Air Mineral" class="form-label">Air Mineral</label><input type="text" name="air_mineral" class="form-control" id="air-mineral" value="'+15000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-2"><label for="Air Mineral" class="form-label">Air Mineral</label><input type="number" name="air_mineral" class="form-control" id="air-mineral" value="'+15000+'"></div>');
 
 
                 var konten_kreator = air_mineral - 50000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Konten Kreator" class="form-label">Konten Kreator</label><input type="text" name="konten_kreator" class="form-control" id="konten-kreator" value="'+50000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Konten Kreator" class="form-label">Konten Kreator</label><input type="number" name="konten_kreator" class="form-control" id="konten-kreator" value="'+50000+'"></div>');
 
                 var kid_man = konten_kreator - 20000;
-                $('#input').append('<div class="mb-3 col-md-6"><label for="Kid Man" class="form-label">Kid Man</label><input type="text" name="kid_man" class="form-control" id="kid_man" value="'+20000+'"></div>');
+                $('#input').append('<div class="mb-3 col-md-6"><label for="Kid Man" class="form-label">Kid Man</label><input type="number" name="kid_man" class="form-control" id="kid_man" value="'+20000+'"></div>');
 
                 $('#input').append('<h5>Laba : '+kid_man+'</h5>')
                 
                 $('#input').append('<button type="submit" class="btn btn-primary">Save</button>')
-                
 
         }
             });
