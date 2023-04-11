@@ -35,7 +35,7 @@ class PengeluaranController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $validate = $request->validate([
             'id_pemasukan' => 'required|numeric|min:1',
             'pembayaran_wasit' => 'required|numeric|min:1',

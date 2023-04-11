@@ -81,11 +81,10 @@
           </li>
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
+            <a href="{{ url('/logout') }}" class="nav-link">
+              <i class="fa-regular fas fa-right-from-bracket"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Logout
               </p>
             </a>
           </li>

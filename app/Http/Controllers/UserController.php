@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -15,97 +18,61 @@ class UserController extends Controller
      */
     public function login()
     {
-        return view('login');
+        return view('auth.login.index');
     }
 
     public function register()
     {
-        return view('register');
+        return view('auth.register.index');
+    }
+
+    public function registerProses(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|string|unique:users',
+            'password' => 'required|string|min:4|confirmed',
+            'password_confirmation' => 'required|string|min:4|same:password',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'password_confirmation' => Hash::make($request->password_confirmation),
+
+        ];
+
+        User::create($data);
+
+        Alert::toast('Registrasi Berhasil', 'success');
+        return redirect('/');
+        
     }
 
     public function loginProses(Request $request)
     {
-        $token = Http::post('https://kedairona.000webhostapp.com/api/token', [
-            'client_key' => 'clientKeyCMS',
-            'secret_key' => 'secret',
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
         ]);
 
-        $result = $token->json();
-
-        // dd($result);
-
-        $this->validate($request, [
-            'email' => 'required|email|string',
-            'password' => 'required|string|min:4',
-        ]);
-
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer '.$result['data']['token'],
-            'Accept' => 'application/json',
-        ])->post('https://kedairona.000webhostapp.com/api/cms/login', [
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
-        ]);
-
-        // dd($response->json());
-
-        if(!$response){
-            return redirect()->back()->with('error', $response->json()['message']);
-        }else{
-            Session::put('auth', $response->json()['data']['token']);
-            return redirect()->intended('dashboard');
+        $cek = $request->only('email', 'password');
+        if (Auth::attempt($cek)) {
+            $request->session()->regenerate();
+            Alert::toast('Login Berhasil', 'success');
+            return redirect('/dashboard');
         }
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+
         
-
     }
 
-    
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function logout()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $userController)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $userController)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $userController)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $userController)
-    {
-        //
+        Auth::logout();
+        return redirect('/');
     }
 }

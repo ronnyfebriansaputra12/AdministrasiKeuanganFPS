@@ -102,10 +102,8 @@
                 var fotographer = laundry - 100000;
                 $('#input').append('<div class="mb-3 col-md-6"><label for="Fotographer" class="form-label">Fotographer</label><input type="number" name="fotografer" class="form-control" id="fotographer" value="'+100000+'"></div>');
 
-
                 var korlap = fotographer - 50000;
                 $('#input').append('<div class="mb-3 col-md-6"><label for="Korlap" class="form-label">Korlap</label><input type="number" name="korlap" class="form-control" id="korlap" value="'+50000+'"></div>');
-
 
                 var admin = korlap - 50000;
                 $('#input').append('<div class="mb-3 col-md-6"><label for="Admin" class="form-label">Admin</label><input type="number" name="admin" class="form-control" id="admin" value="'+50000+'"></div>');
@@ -113,10 +111,8 @@
                 var sewa_lapangan = admin - 100000;
                 $('#input').append('<div class="mb-3 col-md-4"><label for="Sewa Lapangan" class="form-label">Sewa Lapangan</label><input type="number" name="sewa_lapangan" class="form-control" id="sewa-lapangan" value="'+100000+'"></div>');
 
-
                 var air_mineral = sewa_lapangan - 150000;
                 $('#input').append('<div class="mb-3 col-md-2"><label for="Air Mineral" class="form-label">Air Mineral</label><input type="number" name="air_mineral" class="form-control" id="air-mineral" value="'+15000+'"></div>');
-
 
                 var konten_kreator = air_mineral - 50000;
                 $('#input').append('<div class="mb-3 col-md-6"><label for="Konten Kreator" class="form-label">Konten Kreator</label><input type="number" name="konten_kreator" class="form-control" id="konten-kreator" value="'+50000+'"></div>');
